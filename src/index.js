@@ -13,6 +13,7 @@ function fetchBeer() {
     .then(json => {
         console.log(json)
         renderBeer(json)
+        
     })
 }
 
@@ -41,35 +42,33 @@ function renderBeer(beer) {
         
         
     }
-    function changeDescription() {
-        const form = document.querySelector('.description')
-        
-        form.addEventListener("submit", (e) => {
-            e.preventDefault()
+function changeDescription() {
+    const form = document.querySelector('.description')
 
-        })
         
-    }
+    form.addEventListener("submit", (e) => {
+        e.preventDefault()
+        const newDescription = document.querySelector('textarea').innerText
+
+        fetch("http://localhost:3000/beers/1", {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"  
+            },
+            body: JSON.stringify({
+                "description": newDescription
+                    })
+                  })
+    
+              })
+        }
+        
+    
 
     
 //     let more = parseInt(e.target.previousElementSibling.innerText) + 1
   
-//     fetch(`http://localhost:3000/toys/${e.target.id}`, {
-//         method: "PATCH",
-//         headers: {
-//           "Content-Type": "application/json",
-//           "Accept": "application/json"
-  
-//         },
-//         body: JSON.stringify({
-//           "likes": more
-//         })
-//       })
-//       .then(res => res.json())
-//       .then((like_obj => {
-//         e.target.previousElementSibling.innerText = `${more} likes`;
-//       }))
-//   }
+//    
 
     
-
