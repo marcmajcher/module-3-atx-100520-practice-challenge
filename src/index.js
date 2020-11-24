@@ -14,7 +14,7 @@ function beerBuilder(beer){
     let div = document.getElementById('beer-details')
     
     let li = document.createElement('li')
-    li.className = "beers"
+    li.className = "beers
     li.id = beer.id
     li.name = beer.name
 
