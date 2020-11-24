@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   beerForm = document.getElementById('beerForm');
   reviewForm = document.getElementById('reviewForm');
   
-  fetchBeer(); 
+  fetchBeer();
+  fetchAllBeers();
 });
 
 function fetchBeer(){
@@ -78,5 +79,27 @@ function renderBeerReview(beer){
     let listItem = document.createElement('li');
     listItem.innerHTML = reviews[i];
     reviewList.append(listItem);
+  }
+}
+
+function fetchAllBeers(){
+  fetch(rootUrl)
+    .then(resp => resp.json())
+    .then(json => {
+      console.dir(json)
+      renderNav(json)
+    })
+}
+
+function renderNav(beers){
+  const navList = document.querySelector('nav > ul');
+  navList.innerHTML = '';
+  for(let i=0; i < beers.length; i++){
+    let listItem = document.createElement('li');
+    listItem.innerHTML = beers[i].name;
+    navList.append(listItem);
+    listItem.addEventListener("click", function(event) {
+      renderBeer(beers[i]);
+    });
   }
 }
