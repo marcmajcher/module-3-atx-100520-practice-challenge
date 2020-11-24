@@ -22,7 +22,7 @@ The endpoints you will need are:
 
 - GET `/beers/[:id]` (start with /beers/1)
 - PATCH `/beers/[:id]`
-- GET `/beers` (for Advanced Deliverables only)
+- GET `/beers`
 
 ## Core Deliverables
 
@@ -30,7 +30,7 @@ As a user, I can:
 
 - See the first beer's details, including its **name, image, description, and reviews**, when the page loads
 - Change the beer's description and **still see that change when reloading the page**
-- Add a review for the beer (no persistence needed)
+- See a menu of all beers on the left side of the page -- clicking a beer's name replaces the currently displayed beer's details with the details of the beer I clicked on 
 
 ## Advanced Deliverables
 
@@ -40,9 +40,9 @@ These deliverables are not required to pass the code challenge, but if you have 
 
 As a user, I can:
 
+- Add a review for the beer (no persistence needed)
 - Still see the review after refreshing the page
 - Delete a review
-- See a menu of all beers on the left side of the page -- clicking a beer's name replaces the currently displayed beer's details with the details of the beer I clicked on (it's OK if the update beer description and add review buttons still persist data to the first beer instead of the selected beer)
 
 ## Rubric
 
